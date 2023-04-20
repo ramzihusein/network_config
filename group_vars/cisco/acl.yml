@@ -1,5 +1,5 @@
 ---
-acl_config: 
+acl_config: {
   - afi: ipv4
       acls:
       - name: test2
@@ -13,4 +13,5 @@ acl_config:
           source:
             address: 20.20.20.0
             wildcard_bits: 0.0.0.255
+            }
     
