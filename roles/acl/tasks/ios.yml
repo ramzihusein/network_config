@@ -9,7 +9,7 @@
   ansible.builtin.debug:
     var: ios_acl
     
-- name: Configure ACL
-  cisco.ios.ios_acls:
-    state: merged
-    config: "{{ ios_acl.parsed }}" 
+#- name: Configure ACL
+#  cisco.ios.ios_acls:
+#    state: merged
+#    config: "{{ ios_acl.parsed }}" 
