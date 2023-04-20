@@ -1,13 +1,16 @@
 ---
 - name: Parse ACL
   cisco.ios.ios_acls:
-    state: parsed
-    running_config: "{{ lookup('file', 'cisco_acl.cfg') }}" #Found in host_vars/{{device}}.yml
-  register: ios_acl
- 
+    state: merged
+    running_config: "{{ acl_config }}" #Found in host_vars/{{device}}.yml
+    config:
+    - afi: ipv4
+      acls:
+      - name: 
 - name: debug ACL
   ansible.builtin.debug:
     var: ios_acl
+    
     
 #- name: Configure ACL
 #  cisco.ios.ios_acls:
