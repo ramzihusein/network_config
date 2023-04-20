@@ -7,3 +7,7 @@
     - name: configure ACLs
       include_role:
         name: acl
+        
+    - name: configure L3 interfaces
+      include_role:
+        name: l3_interface
