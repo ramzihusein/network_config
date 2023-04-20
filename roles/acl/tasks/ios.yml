@@ -2,7 +2,20 @@
 - name: Configure ACL
   cisco.ios.ios_acls:
     state: merged
-    config: "{{ acl_config }}"
+    config:
+    - afi: ipv4
+      acls:
+      - name: test2
+        acl_type: standard
+        aces:
+        - grant: permit
+          source:
+            address: 10.10.10.0
+            wildcard_bits: 0.0.0.255
+        - grant: deny
+          source:
+            address: 20.20.20.0
+            wildcard_bits: 0.0.0.255
             
   
 #- name: debug ACL
