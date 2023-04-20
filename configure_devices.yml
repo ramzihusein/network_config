@@ -1,0 +1,9 @@
+---
+- name: configure all devices
+  hosts: routers
+  gather_facts: no
+  
+  tasks:
+    - name: configure ACLs
+      include_role:
+        name: acl
