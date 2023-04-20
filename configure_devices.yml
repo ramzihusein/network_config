@@ -4,6 +4,10 @@
   gather_facts: no
   
   tasks:
+    - name: configure banners
+      include_role:
+        name: banner
+  
     - name: configure ACLs
       include_role:
         name: acl
