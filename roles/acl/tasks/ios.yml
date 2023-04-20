@@ -2,7 +2,7 @@
 - name: Parse ACL
   cisco.ios.ios_acls:
     state: parsed
-    running_config: "{{ acl_config }}" #Found in host_vars/{{device}}.yml
+    running_config: "{{ lookup('file', 'cisco_acl.cfg') }}" #Found in host_vars/{{device}}.yml
   register: ios_acl
  
 - name: debug ACL
