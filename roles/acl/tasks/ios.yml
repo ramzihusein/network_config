@@ -5,6 +5,10 @@
     running_config: "{{ acl_config }}" #Found in host_vars/{{device}}.yml
   register: ios_acl
  
+- name: debug ACL
+  ansible.builtin.debug:
+    var: ios_acl
+    
 - name: Configure ACL
   cisco.ios.ios_acls:
     state: merged
