@@ -7,5 +7,5 @@
  
 - name: Configure ACL
   cisco.ios.ios_acls:
-    state: replaced
+    state: merged
     config: "{{ ios_acl.parsed }}" 
