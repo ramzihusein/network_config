@@ -1,13 +1,26 @@
 ---
-- name: Parse ACL
+- name: Configure ACL
   cisco.ios.ios_acls:
-    state: parsed
-    running_config: "{{ acl_config }}" #Found in host_vars/{{device}}.yml
-  register: ios_acl
+    state: merged
+    config:
+    - afi: ipv4
+      acls:
+      - name: test2
+        acl_type: standard
+        aces:
+        - grant: permit
+          source:
+            address: 10.10.10.0
+            wildcard_bits: 0.0.0.255
+        - grant: deny
+          source:
+            address: 20.20.20.0
+            wildcard_bits: 0.0.0.255
+            
   
-- name: debug ACL
-  ansible.builtin.debug:
-    var: ios_acl
+#- name: debug ACL
+#  ansible.builtin.debug:
+#    var: ios_acl
     
     
 #- name: Configure ACL
